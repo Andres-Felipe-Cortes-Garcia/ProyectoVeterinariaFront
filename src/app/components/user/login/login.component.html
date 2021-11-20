@@ -1,0 +1,19 @@
+<main class="form-signin main text-center">
+    <form (ngSubmit)="action()" #myForm='ngForm'>
+      <img class="mb-4" src="https://cdn-icons-png.flaticon.com/512/2934/2934713.png" alt="" width="72" height="57">
+      <h1 class="h3 mb-3 fw-normal">Por favor {{headerText}}</h1>
+  
+      <div class="form-floating mb-2">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+        [(ngModel)]='user.username' name="email">
+        <label for="floatingInput">Correo</label>
+      </div>
+      <div class="form-floating mb-4">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+        [(ngModel)]='user.password' name="password" >
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+
+      <button class="w-100 btn btn-lg btn-primary" type="submit" [disabled]="myForm.form.invalid">{{buttonText}}</button>
+    </form>
+  </main>
