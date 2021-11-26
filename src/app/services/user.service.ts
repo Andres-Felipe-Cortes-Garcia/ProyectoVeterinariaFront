@@ -22,3 +22,5 @@ export class UserService {
     return this.http.post<User>(`${this.url}/auth/login`,user);
   }
 }
+
+

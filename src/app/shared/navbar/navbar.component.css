@@ -1,0 +1,31 @@
+.navbar{
+    background-color: var(--blue-color);
+    padding-inline: 20px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.233);
+    z-index: 10;
+}
+
+.btn-ing{
+    margin-left: 76%;
+    margin-top: 1%;
+    
+}
+.btn{
+    outline: 1px solid rgb(0, 0, 0);
+    
+}
+.btn-primary{
+    background: rgb(122, 121, 121);
+}
+.btn-outline-primary{
+    color: floralwhite;
+
+}
+.btn-outline-primary:hover{
+    background: rgb(122, 121, 121);
+}
+
