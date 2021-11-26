@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   user: User = {
     username : '',
     password : '',
-    //name : ''
+    name : ''
   }
 
   constructor(
