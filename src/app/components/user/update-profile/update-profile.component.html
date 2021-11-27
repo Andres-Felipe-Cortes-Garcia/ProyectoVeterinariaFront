@@ -1,0 +1,50 @@
+<div class="container rounded bg-white mt-5 mb-5 align-items-center col-md-5">
+    <div class="p-3 py-5">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="text-right">Mis datos</h4>
+      </div>
+      <form class="row mt-3" (ngSubmit)="updateProfile()" #myForm='ngForm'>
+        <div class="col-md-12">
+          <label class="labels">Nombre</label
+          ><input  type="text" 
+          class="form-control" 
+          placeholder="Nomre" 
+          [value]="user.name" 
+          [(ngModel)]="user.name"
+          (change)="fieldChange('name')" 
+          name="name"/>
+        </div>
+        <div class="col-md-12">
+          <label class="labels">Correo electronico (Usuario)</label
+          ><input
+            type="text"
+            class="form-control"
+            placeholder="Correo"
+            [value]="user.username" 
+            [(ngModel)]="user.username"
+            readonly="true"
+            name="email"
+          />
+        </div>
+        <div class="col-md-12">
+          <label class="labels">Contraseña</label
+          ><input
+            type="password"
+            class="form-control"
+            placeholder="Contraseña"
+            [value]="user.password" 
+            [(ngModel)]="user.password"
+            (change)="fieldChange('password')"
+            name="password"
+          />
+        </div>
+        <div class="mt-3 text-center">
+          <button class="btn btn-primary profile-button" type="submit" [disabled]="!canUpdate">
+            Guardar cambios
+          </button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+  

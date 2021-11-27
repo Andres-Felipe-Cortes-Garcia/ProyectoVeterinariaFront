@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { FormsModule } from '@angular/forms';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 
@@ -11,7 +12,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    UpdateProfileComponent
   ],
   imports: [
     CommonModule,

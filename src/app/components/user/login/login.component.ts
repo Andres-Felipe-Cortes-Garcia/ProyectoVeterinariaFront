@@ -4,6 +4,7 @@ import {  Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/IUser.interface';
 import { UserService } from 'src/app/services/user.service';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Component({
   selector: 'app-login',
@@ -54,8 +55,24 @@ export class LoginComponent implements OnInit {
     {
       this._userService.login(this.user)
         .subscribe(res => {
-          this.route.navigate(['/home'])
+
+          if(res.response.slice(0,6)==="ERROR.")
+            return this._toastR.warning( res.response.slice(7),"ERROR");
+          
+          const dataToken =this.decodedToken(res.accessToken);
+          if(!dataToken)return
+          this._userService.setUserLogged({
+            username:dataToken.username,
+            password:"",
+            name:dataToken.name,
+            token:res.accessToken,
+            id:dataToken._id
+          });
+          
+          this.route.navigate(['/profile'])
           this._toastR.success('Se ingresó al sistema correctamente correctamente');
+
+          
         })
 
     }else if (this.currentRoute === 'signup')
@@ -66,6 +83,16 @@ export class LoginComponent implements OnInit {
           this._toastR.success('Se registró correctamente');
         })
     }
+    
+  }
+
+  decodedToken(accessToken:string)
+  {
+    const helper = new JwtHelperService();
+ 
+    const decodedToken = helper.decodeToken(accessToken);
+    return decodedToken.user;
+
     
   }
 }
